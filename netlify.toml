@@ -1,18 +1,22 @@
 [build]
-command = "unzip -o VUKO_Crypto_Terminal.zip && cd VUKO_Crypto_Terminal && npm ci && npm run build"
+command = "unzip -o VUKO_Crypto_Terminal.zip && cd VUKO_Crypto_Terminal && npm ci && npm run build && cp ../googleed0ac5930bf183ab.html dist/googleed0ac5930bf183ab.html"
 publish = "VUKO_Crypto_Terminal/dist"
 functions = "VUKO_Crypto_Terminal/netlify/functions"
+
 
 [build.environment]
 NODE_VERSION = "22"
 
+
 [functions]
 node_bundler = "esbuild"
+
 
 [[redirects]]
 from = "/*"
 to = "/index.html"
 status = 200
+
 
 [[headers]]
 for = "/*"
@@ -22,3 +26,4 @@ Referrer-Policy = "strict-origin-when-cross-origin"
 X-Frame-Options = "DENY"
 Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' wss://stream.binance.com:9443; font-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+
